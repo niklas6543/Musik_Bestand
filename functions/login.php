@@ -1,8 +1,8 @@
 <?php
-    require('static/smarty/Smarty.class.php');
-    require_once('lib/config.php');
-    require('lib/redirect.php');
-
+/**
+ * User: Niklas
+ * Date: 21.08.17
+ */
     $message = '';
 
     if (isset($_POST['login']))
@@ -21,37 +21,32 @@
             $stmt->execute();
             $rows = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             $stmt->close();
-            print_r($rows[0]);
         }
 
 
-
-        echo(hash('sha256',$passwd));
-        echo($rows[0]['passwd']);
-
-        if ($rows[0]['passwd'] == hash('sha256',$passwd))
+        if (count($rows) == 1)
         {
-            $message = 'login';
-            redirect();
+            if ($rows[0]['passwd'] == hash('sha256',$passwd))
+            {
+                $message = 'login';
+                $_SESSION['login'] = true;
+                $_SESSION['id'] = $rows[0]['id'];
+                $_SESSION['name'] = $rows[0]['name'];
+
+                redirect();
+            }else
+            {
+                $message = 'warning';
+            }
         }else
         {
-            $message = 'warning';
+             $message = 'warning';
         }
-
-
-
-
-
-
-
-
-
     }
 
 
     $smarty = new Smarty;
     $smarty->assign('message',$message);
     $smarty->display('templates/login.tpl');
-
 
 ?>

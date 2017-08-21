@@ -1,12 +1,14 @@
 <?php
-	define("server","localhost");
-	define("benutzer","root");
-	define("passwort","");
-	define("name","MusikDB");
+	define('SERVER','localhost');
+	define('USER','root');
+	define('PASSWORD', '');
+	define('NAME', 'MusikDB');
 
-	$con=mysqli_connect(server,benutzer,passwort,name);
+	$con = mysqli_connect(SERVER,USER,PASSWORD,NAME);
+
 	mysqli_autocommit($con,TRUE);
 	error_reporting(E_ALL);
+
 	if (!$con)
 	{
 		echo "keine Verbindung möglich";

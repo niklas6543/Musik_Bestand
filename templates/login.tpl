@@ -13,9 +13,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     <form action="index.php" method="post">
         <table>
             <tr>
-                <th align="left">Benutzername</th><td><input type="text" name="user" value="niklas" /></td>
+                <th align="left">Benutzername</th><td><input type="text" name="user"  /></td>
             </tr><tr>
-                <th align="left">Passwort</th><td><input type="password" name="passwd" value="test" /></td>
+                <th align="left">Passwort</th><td><input type="password" name="passwd"  /></td>
             </tr><tr>
                 <td width="50%" ><input type="submit" name="login"  value="Anmelden" /></td>
             </tr>
