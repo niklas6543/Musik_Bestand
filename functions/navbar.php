@@ -1,7 +1,9 @@
 <?php
 /**
- * User: Niklas
- * Date: 21.08.17
+ * File     : navbar.php
+ * Version  : 1.0
+ * Date     : 21.08.17
+ * User     : Niklas
  */
     $fields = [
         ['modus' => 'home', 'name' => 'Home'],

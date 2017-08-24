@@ -1,7 +1,9 @@
 <?php
 /**
- * User: Niklas
- * Date: 21.08.17
+ * File     : login.php
+ * Version  : 1.0
+ * Date     : 21.08.17
+ * User     : Niklas
  */
     $message = '';
 
