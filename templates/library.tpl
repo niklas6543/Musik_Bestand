@@ -31,7 +31,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <td>{$row['rating']}</td>
                             <td>{$row['medium']}</td>
                             <td>{$row['owner']}</td>
-                            <td><img src="{$row['lent']}" width="50" height="50" /></td>
+                            <td>
+                                {if $row['lent'] eq '0'}
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="available">
+                                        <img src="img/greenbtn.png" width="50" height="50" />
+                                    </a>
+                                {else}
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="lent by {$row['lent']}">
+                                        <img src="img/redbtn.png" width="50" height="50" />
+                                    </a>
+                                {/if}                                
+                            </td>
                             <td>{$row['notice']}</td>
                         </tr>
                 {/foreach}

@@ -34,9 +34,10 @@
             $row['owner'] = $owner['name'];            
         }
         
-        if ($row['lent'] == 0)
+        if ($row['lent'] != 0)
         {
-            $row['lent'] = 'img/greenbtn.png';
+            $lent = mysqli_fetch_assoc(mysqli_query($con, 'SELECT name FROM user WHERE id = '.$row['lent']));
+            $row['lent'] = $lent['name'];
         }
         array_push($rows, $row);
     }

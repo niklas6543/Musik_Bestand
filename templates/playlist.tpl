@@ -8,7 +8,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <div>
             <table border="1">
                 <tr>
-                    <td rowspan="4"><img src="{$album['cover']}" /></td>
+                    <td rowspan="4"><img src="{$album['cover']}" width="250" height="250" /></td>
                 </tr>
                 <tr>
                     <td>{$album['album']}</td>
