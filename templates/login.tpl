@@ -4,26 +4,40 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
 <html>
     <head>
-        <title>Loginseite</title>
+        <title>Login</title>
         <script src="static/jquery/jquery-3.1.0.min.js" type="text/javascript"></script>
-        <!--<link rel="stylesheet" type="text/css" href="css/sheet.css"/>-->
+        <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css" />
     </head>
     <body>
-    <h1>Loginseite</h1>
-    <form action="index.php" method="post">
-        <table>
-            <tr>
-                <th align="left">Benutzername</th><td><input type="text" name="user"  /></td>
-            </tr><tr>
-                <th align="left">Passwort</th><td><input type="password" name="passwd"  /></td>
-            </tr><tr>
-                <td width="50%" ><input type="submit" name="login"  value="Anmelden" /></td>
-            </tr>
-        </table>
-    </form>
-    {if $message eq 'login'}
-        <p>Login erfolgreich!!</p>
-    {elseif $message eq 'warning'}
-        <p>Login nicht möglich Benutzername/Passwort falsch!!</p>
-    {/if}
+    <style>
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 20%;
+        left: 40%;
+        border-width: auto;
+        background: lightgrey; 
+    }
+    </style>
+    <div class="center">
+    <div class="container">
+        <h1>Loginsite</h1>
+        <form action="index.php" method="post">
+            <div class="form-group">
+                <label for="user">Username</label>
+                <input type="text" class="form-control" style="width: 20%" id="user" name="user" />
+            </div>                    
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" class="form-control" style="width: 20%" id="pwd" name="passwd" />
+            </div>                    
+            <input type="submit" name="login" class="btn" value="Anmelden" />
+        </form>
+        {if $message eq 'login'}
+            <p>Login erfolgreich!!</p>
+        {elseif $message eq 'warning'}
+            <p>Login nicht möglich Benutzername/Passwort falsch!!</p>
+        {/if}
+    </div>
+    <div>
 </html>

@@ -1,8 +1,8 @@
 <?php
     session_start();
     require_once('static/smarty/Smarty.class.php');
-    require_once('lib/config.php');
-    require_once('lib/redirect.php');
+    require_once('lib/config.inc.php');
+    require_once('lib/redirect.inc.php');
 
     if (!isset($_SESSION['login']))
     {
@@ -34,6 +34,8 @@
 	$sites=[
 	    ['name' => 'home', 'src' => 'functions/home.php'],
 	    ['name' => 'library', 'src' => 'functions/library.php'],
+	    ['name' => 'playlist', 'src' => 'functions/playlist.php'],
+	    ['name' => 'logout', 'src' => 'functions/logout.php']
 	];
 
 
