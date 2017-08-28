@@ -22,7 +22,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 </tr>
                 {foreach $rows as $row}
                         <tr>
-                            <td><a href="index.php?modus=playlist&albumId={$row['albumId']}"><img src="img/lupe.jpg" width="50" height="50" /></a></td>
+                            <td><a href="index.php?modus=playlist&albumId={$row['albumId']}"><img src="img/lupe.png" width="50" height="50" /></a></td>
                             <td><img src="{$row['cover']}" width="100" height="100" /></td>
                             <td>{$row['album']}</td>
                             <td>{$row['interpret']}</td>

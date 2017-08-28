@@ -10,7 +10,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css" />
     </head>
     <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <ul class="nav navbar-nav">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Music Web</a>
@@ -29,4 +29,5 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             <li><a href="index.php?modus=logout">Logout</a></li>
         </ul>
     </nav>
+    <div style="margin: 5%;"></div>
 </html>

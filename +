@@ -5,7 +5,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
 <html>
     <body>
-        <div id="albumInfo">
+        <span class="glyphicon glyphicon-menu-left" data-toggle="collapse" data-target="#info"></span>
+        <div id="info" class="collapse">
             <table border="1">
                 <tr>
                     <td rowspan="4">
