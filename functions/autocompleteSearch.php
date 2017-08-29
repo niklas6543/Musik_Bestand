@@ -1,6 +1,6 @@
 <?php
-	require_once('lib/config.inc.php');
-	
+	require_once('../lib/config.inc.php');
+		
 	if (isset($_GET['term']))
 	{
 		$result = array();
