@@ -7,7 +7,8 @@
  */
     $fields = [
         ['modus' => 'home', 'name' => 'Home'],
-        ['modus' => 'library', 'name' => 'Library'],
+		['modus' => 'library', 'name' => 'Library'],
+		['modus' => 'search', 'name' => 'Search'],
     ];
 
     $smarty= new Smarty;

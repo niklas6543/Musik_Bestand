@@ -35,6 +35,7 @@
 	    ['name' => 'home', 'src' => 'functions/home.php'],
 	    ['name' => 'library', 'src' => 'functions/library.php'],
 	    ['name' => 'playlist', 'src' => 'functions/playlist.php'],
+	    ['name' => 'search', 'src' => 'functions/search.php'],
 	    ['name' => 'logout', 'src' => 'functions/logout.php']
 	];
 

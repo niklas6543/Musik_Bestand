@@ -12,7 +12,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     <th>Cover</th>
                     <th>Name</th>
                     <th>Interpret</th>
-                    <th>Gerne</th>
+                    <th>Genre</th>
                     <th>Year</th>
                     <th>Rating</th>
                     <th>Medium</th>
