@@ -6,9 +6,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 <html>
     <body>
         <div id="albumInfo">
-            <table border="1">
+            <table border="0">
                 <tr>
-                    <td rowspan="4">
+                    <td rowspan="5">
                         <a href="index.php?modus=library">
                             <span class="glyphicon glyphicon-menu-left"></span>
                         </a>
@@ -23,6 +23,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 </tr>
                 <tr>
                     <td>{$album['year']}</td>
+                </tr>
+                <tr>
+                    <td>&nbsp</td>
                 </tr>
             </table>
         </div>

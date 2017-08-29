@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 27. Aug 2017 um 19:55
+-- Erstellungszeit: 29. Aug 2017 um 08:22
 -- Server-Version: 10.1.10-MariaDB
 -- PHP-Version: 5.6.19
 
@@ -46,7 +46,7 @@ CREATE TABLE `alben` (
 
 INSERT INTO `alben` (`id`, `name`, `cover`, `gerne`, `rating`, `year`, `notice`, `ownerId`, `lentId`, `interpretId`, `mediumId`) VALUES
 (1, 'The Stage', 'img/cover/thestage.jpg', 'Metal', NULL, '2016', NULL, 1, 0, 1, 1),
-(2, 'The Scene', 'img/cover/thescene.jpg', 'Metal Core', NULL, '2017', NULL, 1, 0, 2, 2);
+(2, 'The Scene', 'img/cover/thescene.jpg', 'Metal Core', NULL, '2017', NULL, 1, 1, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,20 @@ INSERT INTO `titel` (`id`, `name`, `number`, `length`, `source`, `albenId`) VALU
 (8, 'Higher', 8, '6:28', '', 1),
 (9, 'Roman Sky', 9, '5:00', '', 1),
 (10, 'Fermi Paradox', 10, '6:30', '', 1),
-(11, 'Exist', 11, '15:41', '', 1);
+(11, 'Exist', 11, '15:41', '', 1),
+(12, 'Back In The Bizz', 1, '3:08', NULL, 2),
+(13, 'MC Thunder', 2, '3:51', NULL, 2),
+(14, 'The Devil Within', 3, '3:44', NULL, 2),
+(15, 'Banshee', 4, '3:21', NULL, 2),
+(16, 'The Scene', 5, '3:13', NULL, 2),
+(17, 'VIP', 6, '3:10', NULL, 2),
+(18, 'Shallows', 7, '3:21', NULL, 2),
+(19, 'Nightlife', 8, '3:42', NULL, 2),
+(20, 'X', 9, '0:57', NULL, 2),
+(21, 'New Age', 10, '3:21', NULL, 2),
+(22, 'Frances', 11, '3:37', NULL, 2),
+(23, 'Rooftop', 12, '3:07', NULL, 2),
+(24, 'Calling', 13, '4:20', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -194,7 +207,7 @@ ALTER TABLE `medium`
 -- AUTO_INCREMENT für Tabelle `titel`
 --
 ALTER TABLE `titel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
