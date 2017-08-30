@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 29. Aug 2017 um 21:36
+-- Erstellungszeit: 30. Aug 2017 um 18:17
 -- Server-Version: 10.1.10-MariaDB
 -- PHP-Version: 5.6.19
 
@@ -31,7 +31,7 @@ CREATE TABLE `alben` (
   `name` varchar(30) NOT NULL,
   `cover` varchar(255) NOT NULL,
   `genre` varchar(255) NOT NULL,
-  `rating` int(5) DEFAULT NULL,
+  `rating` int(1) DEFAULT NULL,
   `year` varchar(4) DEFAULT NULL,
   `notice` varchar(255) DEFAULT NULL,
   `ownerId` int(11) NOT NULL,
@@ -45,8 +45,9 @@ CREATE TABLE `alben` (
 --
 
 INSERT INTO `alben` (`id`, `name`, `cover`, `genre`, `rating`, `year`, `notice`, `ownerId`, `lentId`, `interpretId`, `mediumId`) VALUES
-(1, 'The Stage', 'img/cover/thestage.jpg', 'Metal', NULL, '2016', NULL, 1, 0, 1, 1),
-(2, 'The Scene', 'img/cover/thescene.jpg', 'Metal Core', NULL, '2017', NULL, 1, 1, 2, 2);
+(1, 'The Stage', 'img/cover/thestage.jpg', 'Metal', 5, '2016', NULL, 1, 0, 1, 1),
+(2, 'The Scene', 'img/cover/thescene.jpg', 'Metal Core', 0, '2017', NULL, 1, 1, 2, 2),
+(3, 'Crooked Teeth', 'img/cover/crooked.jpg', 'Punk', 4, '2017', NULL, 1, 0, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,8 @@ CREATE TABLE `interpret` (
 
 INSERT INTO `interpret` (`id`, `name`) VALUES
 (1, 'Avenged Sevenfold'),
-(2, 'Eskimo Callboy');
+(2, 'Eskimo Callboy'),
+(3, 'Papa Roach');
 
 -- --------------------------------------------------------
 
@@ -129,7 +131,18 @@ INSERT INTO `titel` (`id`, `name`, `number`, `length`, `source`, `albenId`) VALU
 (21, 'New Age', 10, '3:21', NULL, 2),
 (22, 'Frances', 11, '3:37', NULL, 2),
 (23, 'Rooftop', 12, '3:07', NULL, 2),
-(24, 'Calling', 13, '4:20', NULL, 2);
+(24, 'Calling', 13, '4:20', NULL, 2),
+(25, 'Break The Fall', 1, '3:10', NULL, 3),
+(26, 'Crooked Teeth', 2, '3:03', NULL, 0),
+(27, 'Crooked Teeth', 2, '3:03', NULL, 3),
+(28, 'My Medication', 3, '3:15', NULL, 3),
+(29, 'Born For Greatness', 4, '3:47', NULL, 3),
+(30, 'American Dreams', 5, '3:23', NULL, 3),
+(31, 'Periscope', 6, '3:36', NULL, 3),
+(32, 'Help', 7, '3:34', NULL, 3),
+(33, 'Sunrise Trailer Park', 8, '3:47', NULL, 3),
+(34, 'Traumatic', 9, '2:48', NULL, 3),
+(35, 'None Of The Above', 10, '3:34', NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -192,12 +205,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT für Tabelle `alben`
 --
 ALTER TABLE `alben`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT für Tabelle `interpret`
 --
 ALTER TABLE `interpret`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT für Tabelle `medium`
 --
@@ -207,7 +220,7 @@ ALTER TABLE `medium`
 -- AUTO_INCREMENT für Tabelle `titel`
 --
 ALTER TABLE `titel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT für Tabelle `user`
 --
