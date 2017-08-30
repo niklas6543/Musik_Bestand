@@ -5,22 +5,20 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 <html>
     <head>
         <title>Login</title>
-        <script src="static/jquery/jquery-3.1.0.min.js" type="text/javascript"></script>
-        <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="static/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
     </head>
     <body>
     <style>
-    .center {
-        margin: 0;
-        position: absolute;
-        top: 20%;
-        left: 40%;
-        border-width: auto;
-        background: lightgrey; 
-    }
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            border-width: auto;
+            .background: lightgrey; 
+        }
     </style>
-    <div class="center">
-    <div class="container">
+    <div class="container center jumbotron">
         <h1>Loginsite</h1>
         <form action="index.php" method="post">
             <div class="form-group">
@@ -31,7 +29,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <label for="pwd">Password</label>
                 <input type="password" class="form-control" style="width: 20%" id="pwd" name="passwd" />
             </div>                    
-            <input type="submit" name="login" class="btn" value="Anmelden" />
+            <input type="submit" name="login" class="btn" value="Login" />
         </form>
         {if $message eq 'login'}
             <p>Login erfolgreich!!</p>
@@ -39,5 +37,4 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             <p>Login nicht möglich Benutzername/Passwort falsch!!</p>
         {/if}
     </div>
-    <div>
 </html>

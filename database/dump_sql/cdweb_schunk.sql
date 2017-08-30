@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 29. Aug 2017 um 08:22
+-- Erstellungszeit: 29. Aug 2017 um 21:36
 -- Server-Version: 10.1.10-MariaDB
 -- PHP-Version: 5.6.19
 
@@ -30,7 +30,7 @@ CREATE TABLE `alben` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `cover` varchar(255) NOT NULL,
-  `gerne` varchar(255) NOT NULL,
+  `genre` varchar(255) NOT NULL,
   `rating` int(5) DEFAULT NULL,
   `year` varchar(4) DEFAULT NULL,
   `notice` varchar(255) DEFAULT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `alben` (
 -- Daten für Tabelle `alben`
 --
 
-INSERT INTO `alben` (`id`, `name`, `cover`, `gerne`, `rating`, `year`, `notice`, `ownerId`, `lentId`, `interpretId`, `mediumId`) VALUES
+INSERT INTO `alben` (`id`, `name`, `cover`, `genre`, `rating`, `year`, `notice`, `ownerId`, `lentId`, `interpretId`, `mediumId`) VALUES
 (1, 'The Stage', 'img/cover/thestage.jpg', 'Metal', NULL, '2016', NULL, 1, 0, 1, 1),
 (2, 'The Scene', 'img/cover/thescene.jpg', 'Metal Core', NULL, '2017', NULL, 1, 1, 2, 2);
 

@@ -48,7 +48,6 @@
 		break;
 	    }
 	}
-	    //require('php/functions/footer.php');
     }
 ?>
 

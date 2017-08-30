@@ -26,9 +26,17 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <td><img src="{$row['cover']}" width="100" height="100" /></td>
                             <td>{$row['album']}</td>
                             <td>{$row['interpret']}</td>
-                            <td>{$row['gerne']}</td>
+                            <td>{$row['genre']}</td>
                             <td>{$row['year']}</td>
-                            <td>{$row['rating']}</td>
+                            <td>
+                                {for $i=1 to 5}
+                                    {if $i lte $row['rating']}
+                                        <img src="img/star_full.png" width="25" height="25" />
+                                    {else}
+                                        <img src="img/star_clear.png" width="25" height="25" />
+                                    {/if}
+                                {/for}
+                            </td>
                             <td>{$row['medium']}</td>
                             <td>{$row['owner']}</td>
                             <td>

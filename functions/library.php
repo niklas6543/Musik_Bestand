@@ -8,7 +8,7 @@
     $sql = 'SELECT
                 alben.id AS \'albumId\', 
                 alben.cover AS \'cover\', alben.name AS \'album\', 
-                interpret.name AS \'interpret\', alben.gerne AS \'gerne\',
+                interpret.name AS \'interpret\', alben.genre AS \'genre\',
                 alben.rating AS \'rating\', medium.name AS \'medium\',
                 alben.ownerId AS \'owner\', alben.lentId AS \'lent\',
                 alben.notice AS \'notice\', alben.year AS \'year\'   
