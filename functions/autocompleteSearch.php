@@ -10,20 +10,23 @@
     if (isset($_GET['term']))
     {
        	$result = array();
-	
-        $sql = 'SELECT
-           	    titel.name AS \'titel\', 
-		    alben.name AS \'album\', 
-		    interpret.name AS \'interpret\'
-		FROM 
-		(
-		    (
-	                titel
-		        INNER JOIN alben ON titel.albenId = alben.id
-	            )
-		    INNER JOIN interpret ON alben.interpretId = interpret.id
-		)
-		WHERE titel.name LIKE ?;';
+		$mode = $_GET['mode'];
+		$sql = '';
+
+		if ($mode == 'titel')
+		{
+			$sql = 'SELECT name AS \'titel\' FROM titel	WHERE name LIKE ?;';
+		}
+
+		if ($mode == 'interpret')
+		{
+			$sql = 'SELECT name AS \'interpret\' FROM interpret	WHERE name LIKE ?;';
+		}
+
+		if ($mode == 'genre')
+		{
+			$sql = 'SELECT genre FROM alben	WHERE genre LIKE ?;';
+		}
 
         if ($stmt = $con->prepare($sql))
         {
@@ -31,11 +34,11 @@
             $stmt->bind_param('s', $term);
             $stmt->execute();
             
-	    $rows = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+	    $rows = $stmt->get_result()->fetch_all();
 	    
-            foreach ($rows as $row)
-            {
-	        $result[] = $row['titel'];
+        foreach ($rows as $row)
+        {
+	        $result[] = $row[0];
 	    }
 
             $stmt->close();

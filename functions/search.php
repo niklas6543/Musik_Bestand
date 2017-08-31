@@ -54,14 +54,14 @@
                 )
                 WHERE '.join(' AND ',$conditions).';';
         
-        if ($stmt = $con->prepare( $sql))
+        if ($stmt = $con->prepare($sql))
         {
             $stmt->bind_param(str_repeat('s', count($values)), ...array_values($values));
             $stmt->execute();
             $rows = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             $stmt->close();
         }
-    
+   
         foreach ($values as $k => $v)
         {   
             

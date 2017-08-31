@@ -5,51 +5,74 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 <html>
     <body>
         <script type="text/javascript">
-	    $(function(){
-	        $('#titel').autocomplete({
-		    source: 'functions/autocompleteSearch.php',
-		    minLength: 1
+		$(function(){
+			var fields = [
+				'titel',
+				'interpret',
+				'genre'
+			];
+
+			for (var i=0; i < fields.length; i++)
+			{
+				$('#'+fields[i]).autocomplete({
+					source: function(request, response) {
+						$.ajax({
+							url: 'functions/autocompleteSearch.php',
+							dataType: "json",
+							data: {
+								mode: this.element.attr('name'),
+								term: this.element.val()
+							},
+							success: function(data) {
+								response(data);
+								console.log(data);
+							}
+						});
+					}
+				});
+			}
 		});
-	    });
 	</script>
-        <div class="container col-lg-3">
-            <h1>Search</h1>
-            <form action="index.php?modus=search" method="post">
-                <div class="form-group">
-                    <label for="titel">Titel</label>
-                    <input type="text" name="titel" class="form-control" id="titel"
-                        {if array_key_exists(titel, $values)} value="{$values['titel']}"{/if} />
-                </div>	
-                        
-                <div class="form-group">
-                    <label for="interpret">Interpret</label>
-                    <input type="text" name="interpret" class="form-control" id="interpret"
-                        {if array_key_exists(interpret, $values)} value="{$values['interpret']}"{/if} />
+        <div class="container col-lg-3" >
+			<div style="position:fixed; ">
+						<h1>Search</h1>
+						<form action="index.php?modus=search" method="post">
+							<div class="form-group">
+								<label for="titel">Titel</label>
+								<input type="text" name="titel" class="form-control" id="titel"
+									{if array_key_exists(titel, $values)} value="{$values['titel']}"{/if} />
+							</div>	
+									
+							<div class="form-group">
+								<label for="interpret">Interpret</label>
+								<input type="text" name="interpret" class="form-control" id="interpret"
+									{if array_key_exists(interpret, $values)} value="{$values['interpret']}"{/if} />
 
-                </div>	
-                
-                <div class="form-group">
-                    <label for="genre">Genre</label>
-                    <input type="text" name="genre" class="form-control" id="genre"
-                        {if array_key_exists(genre, $values)} value="{$values['genre']}"{/if} />
+							</div>	
+							
+							<div class="form-group">
+								<label for="genre">Genre</label>
+								<input type="text" name="genre" class="form-control" id="genre"
+									{if array_key_exists(genre, $values)} value="{$values['genre']}"{/if} />
 
-                </div>	
-                
-                <div class="form-group">
-                    <label for="year">Year</label>
-                    <input type="text" name="year"  class="form-control" id="year" 
-                        {if array_key_exists(year, $values)} value="{$values['year']}"{/if} />
+							</div>	
+							
+							<div class="form-group">
+								<label for="year">Year</label>
+								<input type="text" name="year"  class="form-control" id="year" 
+									{if array_key_exists(year, $values)} value="{$values['year']}"{/if} />
 
-                </div>
+							</div>
 
-                <div class="form-group">
-                    <label for="notice">Notice</label>
-                    <input type="text" class="form-control" id="notice"
-                        {if array_key_exists(notice, $values)} value="{$values['notice']}"{/if} />
+							<div class="form-group">
+								<label for="notice">Notice</label>
+								<input type="text" class="form-control" id="notice"
+									{if array_key_exists(notice, $values)} value="{$values['notice']}"{/if} />
 
-                </div>
-                <input type="submit" name="search" class="btn" value="Search" />
-            </form>
+							</div>
+							<input type="submit" name="search" class="btn" value="Search" />
+						</form>
+			</div>
         </div>
         {if $rows}
             <div class="container col-lg-9">
