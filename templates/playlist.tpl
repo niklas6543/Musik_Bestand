@@ -35,13 +35,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <img src="img/greenbtn.png" width="50" height="50" />
                         </a>
                     {else}
-                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="lent by {$album['lent']}">
+                        <a href="index.php?modus=playlist&albumId={$album['id']}&backit" data-toggle="tooltip" data-placement="bottom" title="lent by {$album['lent']}">
                             <img src="img/redbtn.png" width="50" height="50" />
                         </a>
                     {/if}                                
                 </div>
             </div>
-            {if $lentit eq 0}
+            {if $mode eq 'playlist'}
                 <div class="row">
                     <h1>Playlist</h1>
                     <table class="table table-striped">
@@ -61,13 +61,22 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                         {/foreach}
                     </table>
                 </div>
-            {else}
+            {else if $mode eq 'lentit'}
                 <div class="container">
                     <h1>Renting</h1>
                     <p>Would you like to rent this album?</p>
                     <form action="index.php?modus=playlist&albumId={$album['id']}&lentit" method="post">
-                        <input type="button" class="btn" value="no" />
-                        <input type="button" class="btn" value="yes" />
+                        <input type="submit" name="answerLent" class="btn" value="no" />
+                        <input type="submit" name="answerLent" class="btn" value="yes" />
+                    </form>
+                </div>
+			{else if $mode eq 'backit'}
+                <div class="container">
+                    <h1>Give Back</h1>
+                    <p>Would you like to give this album back?</p>
+                    <form action="index.php?modus=playlist&albumId={$album['id']}&backit" method="post">
+                        <input type="submit" name="answerBack" class="btn" value="no" />
+                        <input type="submit" name="answerBack" class="btn" value="yes" />
                     </form>
                 </div>
             {/if}

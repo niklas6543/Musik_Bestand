@@ -41,11 +41,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <td>{$row['owner']}</td>
                             <td>
                                 {if $row['lent'] eq '0'}
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="available">
+                                    <a href="index.php?modus=playlist&albumId={$row['albumId']}&lentit" data-toggle="tooltip" data-placement="bottom" title="available">
                                         <img src="img/greenbtn.png" width="50" height="50" />
                                     </a>
                                 {else}
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="lent by {$row['lent']}">
+                                    <a href="index.php?modus=playlist&albumId={$row['albumId']}&backit" data-toggle="tooltip" data-placement="bottom" title="lent by {$row['lent']}">
                                         <img src="img/redbtn.png" width="50" height="50" />
                                     </a>
                                 {/if}                                

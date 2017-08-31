@@ -49,17 +49,26 @@
             array_push($titel, $row);
         }
         
+		$mode = 'playlist';
 
         if (isset($_GET['lentit']))
         {
-            $lentit = $_SESSION['id'];   
-        }else
-        {
-            $lentit = 0;
+			$mode = 'lentit';
         }
         
+        if (isset($_GET['backit']))
+        {
+        	$lentId = mysqli_fetch_assoc(mysqli_query($con, 'SELECT lentId FROM alben WHERE id='.$_GET['albumId']));
+			
+			if ($lentId['lentId'] == $_SESSION['id'])
+			{
+				$mode = 'backit';
+			}
+
+        }
+
         $smarty = new Smarty();
-        $smarty->assign('lentit', $lentit);
+        $smarty->assign('mode', $mode);
         $smarty->assign('album', $album);
         $smarty->assign('titel', $titel);
         $smarty->display("templates/playlist.tpl");
@@ -68,8 +77,31 @@
         echo 'no album selected';   
     }
 
-    if (isset($_GET['no']))
+    if (isset($_POST['answerLent']))
     {
-        header('Location: index.php?modus=library');
+		$id = $_GET['albumId'];
+
+		if ($_POST['answerLent'] == 'yes')
+		{
+			$sql = 'UPDATE alben SET lentId='.$_SESSION['id'].' WHERE id='.$id;
+			
+			mysqli_query($con, $sql);
+		}
+
+       	header('Location: index.php?modus=playlist&albumId='.$id);
+    }
+    
+	if (isset($_POST['answerBack']))
+    {
+		$id = $_GET['albumId'];
+
+		if ($_POST['answerBack'] == 'yes')
+		{
+			$sql = 'UPDATE alben SET lentId=0 WHERE id='.$id;
+			
+			mysqli_query($con, $sql);
+		}
+
+       	header('Location: index.php?modus=playlist&albumId='.$id);
     }
 ?>

@@ -26,6 +26,7 @@
     
     $ratings = [];
     $availables = [];
+    $lents = [];
     
     while ($row = mysqli_fetch_assoc($result))
     {
@@ -35,6 +36,11 @@
         {
             $row['owner'] = $owner['name'];            
         }
+
+		if ($_SESSION['id'] == $row['lent'])
+		{
+			array_push($lents, $row);
+		}
         
         if ($row['lent'] != 0)
         {
@@ -44,14 +50,14 @@
         {
             array_push($availables, $row);
         }
-        
-        
+
         
         array_push($ratings, $row);
     }
     
     $smarty = new Smarty;
     $smarty->assign('user',$_SESSION['name']);
+    $smarty->assign('lents', $lents);
     $smarty->assign('availables', $availables);
     $smarty->assign('ratings', $ratings);
     $smarty->display('templates/home.tpl');

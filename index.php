@@ -1,5 +1,5 @@
 <?php
-    session_start();
+	session_start();
     require_once('static/smarty/Smarty.class.php');
     require_once('lib/config.inc.php');
     require_once('lib/redirect.inc.php');
@@ -50,5 +50,3 @@
 	}
     }
 ?>
-
-
