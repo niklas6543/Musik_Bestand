@@ -56,7 +56,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                                     <td>{$row['number']}</td>
                                     <td>{$row['name']}</td>
                                     <td>{$row['length']}</td>
-                                    <td>{$row['source']}</td>
+                                    <td>
+										<a href="index.php?modus=playlist&titleId={$row['id']}">
+											<img src="img/play.png" width="50" height="50" />
+										</a>
+									</td>
                                 </tr>
                         {/foreach}
                     </table>

@@ -1,6 +1,6 @@
 <?php
 /**
- * File     : search.php
+ * File     : autocompleteSearch.php
  * Version  : 1.0
  * Date     : 29.08.17
  * User     : Niklas

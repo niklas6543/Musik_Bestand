@@ -36,7 +36,7 @@
             $album['lent'] = $lent['name'];
         }
         
-        $sql = 'SELECT name, length, number, source
+        $sql = 'SELECT * 
                 FROM titel
                 WHERE albenId = '.$albumId;
         
