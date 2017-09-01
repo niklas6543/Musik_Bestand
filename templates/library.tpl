@@ -31,9 +31,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <td>
                                 {for $i=1 to 5}
                                     {if $i lte $row['rating']}
-                                        <img src="img/star_full.png" width="25" height="25" />
+                                    	<span style="font-size: 30px">★</span>
                                     {else}
-                                        <img src="img/star_clear.png" width="25" height="25" />
+                                    	<span style="font-size: 30px">☆</span>
                                     {/if}
                                 {/for}
                             </td>
