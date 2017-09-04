@@ -5,8 +5,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
 <html>
     <body>
+        <style>
+            .top-buffer { 
+                margin-top:5%; 
+            }
+        </style>
         <a href="index.php?modus=library">
-           <span style="font-size:30px; position:fixed; top:10%; right:80%" class="glyphicon glyphicon-menu-left"></span>
+           <span style="font-size:30px; position:fixed; top:10%; " class="glyphicon glyphicon-menu-left"></span>
         </a>
 
         <div class="container">
@@ -52,21 +57,25 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <th>Source</th>
                         </tr>
                         {foreach $titel as $row}
-                                <tr>
-                                    <td>{$row['number']}</td>
-                                    <td>{$row['name']}</td>
-                                    <td>{$row['length']}</td>
-                                    <td>
-										<a href="index.php?modus=playlist&titleId={$row['id']}">
-											<img src="img/play.png" width="50" height="50" />
-										</a>
-									</td>
-                                </tr>
+                             <tr>
+                                 <td>{$row['number']}</td>
+                                 <td>{$row['name']}</td>
+                                 <td>{$row['length']}</td>
+                                 <td>
+	        	             <a href="index.php?modus=playlist&albumId={$album['id']}&titleId={$row['id']}">
+		        	         <img src="img/play.png" width="50" height="50" />
+			            </a>
+			        </td>
+                           </tr>
                         {/foreach}
                     </table>
                 </div>
+            {else if $mode eq 'play'}
+                <div class="row top-buffer">
+                    <iframe width="560" height="315" src="{$source}?showinfo=0" frameborder="1" allowfullscreen></iframe>
+                </div>
             {else if $mode eq 'lentit'}
-                <div class="container">
+                <div class="row top-buffer">
                     <h1>Renting</h1>
                     <p>Would you like to rent this album?</p>
                     <form action="index.php?modus=playlist&albumId={$album['id']}&lentit" method="post">
@@ -74,8 +83,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                         <input type="submit" name="answerLent" class="btn" value="yes" />
                     </form>
                 </div>
-			{else if $mode eq 'backit'}
-                <div class="container">
+            {else if $mode eq 'backit'}
+                <div class="row top-buffer">
                     <h1>Give Back</h1>
                     <p>Would you like to give this album back?</p>
                     <form action="index.php?modus=playlist&albumId={$album['id']}&backit" method="post">

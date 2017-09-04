@@ -49,25 +49,35 @@
             array_push($titel, $row);
         }
         
-		$mode = 'playlist';
+	$mode = 'playlist';
 
         if (isset($_GET['lentit']))
         {
-			$mode = 'lentit';
+            $mode = 'lentit';
         }
         
         if (isset($_GET['backit']))
         {
-        	$lentId = mysqli_fetch_assoc(mysqli_query($con, 'SELECT lentId FROM alben WHERE id='.$_GET['albumId']));
+            $lentId = mysqli_fetch_assoc(mysqli_query($con, 'SELECT lentId FROM alben WHERE id='.$_GET['albumId']));
 			
-			if ($lentId['lentId'] == $_SESSION['id'])
-			{
-				$mode = 'backit';
-			}
+	    if ($lentId['lentId'] == $_SESSION['id'])
+	    {
+	        $mode = 'backit';
+	    }
 
         }
-
+        
         $smarty = new Smarty();
+
+        if (isset($_GET['titleId']))
+        {
+            $id = $_GET['titleId'];
+            $mode = 'play';
+        
+            $title = mysqli_fetch_assoc(mysqli_query($con, 'SELECT source FROM titel WHERE id = '.$id));
+            $smarty->assign('source', $title['source']);       
+        }
+
         $smarty->assign('mode', $mode);
         $smarty->assign('album', $album);
         $smarty->assign('titel', $titel);
@@ -79,28 +89,28 @@
 
     if (isset($_POST['answerLent']))
     {
-		$id = $_GET['albumId'];
+	$id = $_GET['albumId'];
 
-		if ($_POST['answerLent'] == 'yes')
-		{
-			$sql = 'UPDATE alben SET lentId='.$_SESSION['id'].' WHERE id='.$id;
+        if ($_POST['answerLent'] == 'yes')
+	{
+	    $sql = 'UPDATE alben SET lentId='.$_SESSION['id'].' WHERE id='.$id;
 			
-			mysqli_query($con, $sql);
-		}
+	    mysqli_query($con, $sql);
+	}
 
        	header('Location: index.php?modus=playlist&albumId='.$id);
     }
     
-	if (isset($_POST['answerBack']))
+    if (isset($_POST['answerBack']))
     {
-		$id = $_GET['albumId'];
+	$id = $_GET['albumId'];
 
-		if ($_POST['answerBack'] == 'yes')
-		{
-			$sql = 'UPDATE alben SET lentId=0 WHERE id='.$id;
+	if ($_POST['answerBack'] == 'yes')
+	{
+            $sql = 'UPDATE alben SET lentId=0 WHERE id='.$id;
 			
-			mysqli_query($con, $sql);
-		}
+	    mysqli_query($con, $sql);
+	}
 
        	header('Location: index.php?modus=playlist&albumId='.$id);
     }

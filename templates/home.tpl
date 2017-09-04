@@ -72,9 +72,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                                     {/if}
                                 {/for}
                             </td>
-							<td>
-								<a href="index.php?modus=playlist&albumId={$lent['albumId']}&backit"><span class="glyphicon glyphicon-hand-right"> Give Back</span></a>
-							</td>
+			    <td>
+		                <a href="index.php?modus=playlist&albumId={$lent['albumId']}&backit"><span class="glyphicon glyphicon-hand-right"> Give Back</span></a>
+	                    </td>
                         </tr>
                 {/foreach}
 	    </table>

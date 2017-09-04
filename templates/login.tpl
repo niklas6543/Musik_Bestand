@@ -19,7 +19,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         }
     </style>
     <div class="container center jumbotron">
-        <h1>Loginsite</h1>
+        <h1>Login-Site</h1>
         <form action="index.php" method="post">
             <div class="form-group">
                 <label for="user">Username</label>
