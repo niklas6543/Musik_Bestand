@@ -4,6 +4,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
 <html>
     <head>
+        <meta charset="UTF-8" />
+    
         <link rel="stylesheet" type="text/css" href="static/bootstrap-3.3.7/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" type"text/css" href="static/jquery-ui-1.12.1.custom/jquery-ui.min.css" />
         

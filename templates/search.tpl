@@ -66,7 +66,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
 							<div class="form-group">
 								<label for="notice">Notice</label>
-								<input type="text" class="form-control" id="notice"
+								<input type="text" name="notice" class="form-control" id="notice"
 									{if array_key_exists(notice, $values)} value="{$values['notice']}"{/if} />
 
 							</div>

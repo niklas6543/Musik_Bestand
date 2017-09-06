@@ -36,6 +36,12 @@
             $values['year'] = '%'.$_POST['year'].'%';
         }
 
+        if ($_POST['notice'] != '')
+        {   
+            array_push($conditions, 'alben.notice LIKE ?');
+            $values['notice'] = '%'.$_POST['notice'].'%';
+        }
+
         $sql = 'SELECT
                     alben.id AS \'albumId\', titel.name AS \'titel\',
                     alben.cover AS \'cover\', alben.name AS \'album\', 
