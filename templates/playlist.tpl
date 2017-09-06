@@ -10,7 +10,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 margin-top:5%; 
             }
         </style>
-        <a href="index.php?modus=library">
+        <a href="index.php?session=library">
            <span style="font-size:30px; position:fixed; top:10%; " class="glyphicon glyphicon-menu-left"></span>
         </a>
 
@@ -36,11 +36,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 </div>
                 <div class"col-lg-1">
                     {if $album['lent'] eq '0'}
-                        <a href="index.php?modus=playlist&albumId={$album['id']}&lentit" data-toggle="tooltip" data-placement="bottom" title="available">
+                        <a href="index.php?session=playlist&albumId={$album['id']}&lentit" data-toggle="tooltip" data-placement="bottom" title="available">
                             <img src="img/greenbtn.png" width="50" height="50" />
                         </a>
                     {else}
-                        <a href="index.php?modus=playlist&albumId={$album['id']}&backit" data-toggle="tooltip" data-placement="bottom" title="lent by {$album['lent']}">
+                        <a href="index.php?session=playlist&albumId={$album['id']}&backit" data-toggle="tooltip" data-placement="bottom" title="lent by {$album['lent']}">
                             <img src="img/redbtn.png" width="50" height="50" />
                         </a>
                     {/if}                                
@@ -62,7 +62,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                                  <td>{$row['name']}</td>
                                  <td>{$row['length']}</td>
                                  <td>
-	        	             <a href="index.php?modus=playlist&albumId={$album['id']}&titleId={$row['id']}">
+	        	             <a href="index.php?session=playlist&albumId={$album['id']}&titleId={$row['id']}">
 		        	         <img src="img/play.png" width="50" height="50" />
 			            </a>
 			        </td>
@@ -78,7 +78,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <div class="row top-buffer">
                     <h1>Renting</h1>
                     <p>Would you like to rent this album?</p>
-                    <form action="index.php?modus=playlist&albumId={$album['id']}&lentit" method="post">
+                    <form action="index.php?session=playlist&albumId={$album['id']}&lentit" method="post">
                         <input type="submit" name="answerLent" class="btn" value="no" />
                         <input type="submit" name="answerLent" class="btn" value="yes" />
                     </form>
@@ -87,7 +87,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <div class="row top-buffer">
                     <h1>Give Back</h1>
                     <p>Would you like to give this album back?</p>
-                    <form action="index.php?modus=playlist&albumId={$album['id']}&backit" method="post">
+                    <form action="index.php?session=playlist&albumId={$album['id']}&backit" method="post">
                         <input type="submit" name="answerBack" class="btn" value="no" />
                         <input type="submit" name="answerBack" class="btn" value="yes" />
                     </form>

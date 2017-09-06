@@ -12,6 +12,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	<script src="static/jquery/jquery-3.1.0.min.js" type="text/javascript"></script>
         <script src="static/jquery-ui-1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
         <script src="static/bootstrap-3.3.7/dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <title>{$session|ucfirst}</title>
     </head>
     <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -21,16 +22,16 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
             </div>
             {foreach $fields as $field}
                 <li
-                    {if $modus eq $field['modus']}
+                    {if $session eq $field['session']}
                         class="active"
                     {/if}
                 >
-                    <a href="index.php?modus={$field['modus']}">{$field['name']}</a>
+                    <a href="index.php?session={$field['session']}">{$field['name']}</a>
                 </li>
             {/foreach}
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php?modus=logout">Logout</a></li>
+            <li><a href="index.php?session=logout">Logout</a></li>
         </ul>
     </nav>
     <div style="margin: 5%;"></div>

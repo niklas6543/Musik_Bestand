@@ -5,6 +5,34 @@
  * Date     : 27.08.17
  * User     : Niklas
  */
+    if (isset($_POST['answerLent']))
+    {
+	$id = $_GET['albumId'];
+        
+        if ($_POST['answerLent'] == 'yes')
+	{
+	    $sql = 'UPDATE alben SET lentId='.$_SESSION['id'].' WHERE id='.$id;
+			
+	    mysqli_query($con, $sql);
+	}
+
+       	header('Location: index.php?session=playlist&albumId='.$id);
+    }
+    
+    if (isset($_POST['answerBack']))
+    {
+	$id = $_GET['albumId'];
+
+	if ($_POST['answerBack'] == 'yes')
+	{
+            $sql = 'UPDATE alben SET lentId=0 WHERE id='.$id;
+			
+	    mysqli_query($con, $sql);
+	}
+
+       	header('Location: index.php?session=playlist&albumId='.$id);
+    }
+
     if (isset($_GET['albumId']))
     {
         $albumId = $_GET['albumId'];
@@ -87,31 +115,4 @@
         echo 'no album selected';   
     }
 
-    if (isset($_POST['answerLent']))
-    {
-	$id = $_GET['albumId'];
-
-        if ($_POST['answerLent'] == 'yes')
-	{
-	    $sql = 'UPDATE alben SET lentId='.$_SESSION['id'].' WHERE id='.$id;
-			
-	    mysqli_query($con, $sql);
-	}
-
-       	header('Location: index.php?modus=playlist&albumId='.$id);
-    }
-    
-    if (isset($_POST['answerBack']))
-    {
-	$id = $_GET['albumId'];
-
-	if ($_POST['answerBack'] == 'yes')
-	{
-            $sql = 'UPDATE alben SET lentId=0 WHERE id='.$id;
-			
-	    mysqli_query($con, $sql);
-	}
-
-       	header('Location: index.php?modus=playlist&albumId='.$id);
-    }
 ?>

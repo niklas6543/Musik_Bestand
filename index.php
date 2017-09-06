@@ -1,5 +1,5 @@
 <?php
-	session_start();
+    session_start();
     require_once('static/smarty/Smarty.class.php');
     require_once('lib/config.inc.php');
     require_once('lib/redirect.inc.php');
@@ -7,7 +7,7 @@
     if (!isset($_SESSION['login']))
     {
 	require('functions/login.php');
-	$modus='home';
+	$session='home';
     }
 
 
@@ -15,13 +15,13 @@
 
     if (isset($_SESSION['login']))
     {
-        if (!array_key_exists('modus', $_GET))
+        if (!array_key_exists('session', $_GET))
 	{
-	    $modus='home';
+	    $session='home';
 			
 	}else
 	{
-	    $modus = $_GET['modus']; 
+	    $session = $_GET['session']; 
 			
 	}
 		
@@ -42,7 +42,7 @@
 
 	foreach ($sites as $site)
 	{
-	    if ($site['name'] == $modus)
+	    if ($site['name'] == $session)
 	    {
 		require($site['src']);
 		break;

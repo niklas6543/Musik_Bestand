@@ -6,24 +6,24 @@
  * User     : Niklas
  */
     $fields = [
-        ['modus' => 'home', 'name' => 'Home'],
-		['modus' => 'library', 'name' => 'Library'],
-		['modus' => 'search', 'name' => 'Search'],
+        ['session' => 'home', 'name' => 'Home'],
+		['session' => 'library', 'name' => 'Library'],
+		['session' => 'search', 'name' => 'Search'],
     ];
 
     $smarty= new Smarty;
 
-    if (!array_key_exists('modus', $_GET))
+    if (!array_key_exists('session', $_GET))
     {
-        $modus='home';
+        $session='home';
 
     }else
     {
-        $modus = $_GET['modus'];
+        $session = $_GET['session'];
 
     }
 
-    $smarty->assign("modus",$modus);
+    $smarty->assign("session",$session);
     $smarty->assign("fields",$fields);
     $smarty->display("templates/navbar.tpl");
 ?>
