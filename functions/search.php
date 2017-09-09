@@ -12,10 +12,10 @@
     {
         $conditions = [];
         
-        if ($_POST['titel'] != '')
+        if ($_POST['title'] != '')
         {   
-            array_push($conditions, 'titel.name LIKE ?');
-            $values['titel'] = '%'.$_POST['titel'].'%';
+            array_push($conditions, 'title.name LIKE ?');
+            $values['title'] = '%'.$_POST['title'].'%';
         }
 
         if ($_POST['interpret'] != '')
@@ -43,7 +43,7 @@
         }
 
         $sql = 'SELECT
-                    alben.id AS \'albumId\', titel.name AS \'titel\',
+                    alben.id AS \'albumId\', title.name AS \'title\',
                     alben.cover AS \'cover\', alben.name AS \'album\', 
                     interpret.name AS \'interpret\', alben.genre AS \'genre\',
                     alben.notice AS \'notice\'   
@@ -56,7 +56,7 @@
                         )
                         INNER JOIN medium ON alben.mediumId = medium.id
                     )
-                    INNER JOIN titel ON titel.albenId = alben.id
+                    INNER JOIN title ON title.albenId = alben.id
                 )
                 WHERE '.join(' AND ',$conditions).';';
         

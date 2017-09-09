@@ -56,7 +56,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <th>Length</th>
                             <th>Source</th>
                         </tr>
-                        {foreach $titel as $row}
+                        {foreach $title as $row}
                              <tr>
                                  <td>{$row['number']}</td>
                                  <td>{$row['name']}</td>

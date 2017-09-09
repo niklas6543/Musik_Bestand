@@ -7,7 +7,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <script type="text/javascript">
             $(function(){
                 var fields = [
-                    'titel',
+                    'title',
                     'interpret',
                     'genre'
                 ];
@@ -18,14 +18,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                         source: function(request, response) {
                             $.ajax({
                                 url: 'functions/autocompletesearch.php',
-                                datatype: "json",
+                                datatype: 'json',
                                 data: {
-                                mode: this.element.attr('name'),
-                                term: this.element.val()
-                            },
+                                    mode: this.element.attr('name'),
+                                    term: this.element.val()
+                                },
                                 success: function(data) {
-                                response(data);
-                                console.log(data);
+                                    response(data);
+                                    console.log(data);
                                 }
                             });
                         }
@@ -39,9 +39,9 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <h1>Search</h1>
                 <form action="index.php?session=search" method="post">
                     <div class="form-group">
-                        <label for="titel">Title</label>
-                        <input type="text" name="titel" class="form-control" id="titel"
-                            {if array_key_exists(titel, $values)} value="{$values['titel']}"{/if} />
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="form-control" id="title"
+                            {if array_key_exists(title, $values)} value="{$values['title']}"{/if} />
                     </div>	
 
                     <div class="form-group">
@@ -78,7 +78,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     <tr>
                         <th>Playlist</th>
                         <th>Cover</th>
-                        <th>Titel</th>
+                        <th>Title</th>
                         <th>Interpret</th>
                         <th>Genre</th>
                         <th>Notice</th>
@@ -87,7 +87,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                         <tr>
                             <td><a href="index.php?session=playlist&albumId={$row['albumId']}"><img src="img/lupe.png" width="50" height="50" /></a></td>
                             <td><img src="{$row['cover']}" width="100" height="100" /></td>
-                            <td>{$row['titel']}</td>
+                            <td>{$row['title']}</td>
                             <td>{$row['interpret']}</td>
                             <td>{$row['genre']}</td>
                             <td>{$row['notice']}</td>

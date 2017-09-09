@@ -13,9 +13,9 @@
 		$mode = $_GET['mode'];
 		$sql = '';
 
-		if ($mode == 'titel')
+		if ($mode == 'title')
 		{
-			$sql = 'SELECT name AS \'titel\' FROM titel	WHERE name LIKE ?;';
+			$sql = 'SELECT name AS \'title\' FROM title	WHERE name LIKE ?;';
 		}
 
 		if ($mode == 'interpret')

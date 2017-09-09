@@ -65,16 +65,16 @@
         }
         
         $sql = 'SELECT * 
-                FROM titel
+                FROM title
                 WHERE albenId = '.$albumId;
         
         $result = mysqli_query($con, $sql);
         
-        $titel = [];
+        $title = [];
         
         while ($row = mysqli_fetch_assoc($result))
         {
-            array_push($titel, $row);
+            array_push($title, $row);
         }
         
 	$mode = 'playlist';
@@ -102,13 +102,13 @@
             $id = $_GET['titleId'];
             $mode = 'play';
         
-            $title = mysqli_fetch_assoc(mysqli_query($con, 'SELECT source FROM titel WHERE id = '.$id));
+            $title = mysqli_fetch_assoc(mysqli_query($con, 'SELECT source FROM title WHERE id = '.$id));
             $smarty->assign('source', $title['source']);       
         }
 
         $smarty->assign('mode', $mode);
         $smarty->assign('album', $album);
-        $smarty->assign('titel', $titel);
+        $smarty->assign('title', $title);
         $smarty->display("templates/playlist.tpl");
     }else
     {
