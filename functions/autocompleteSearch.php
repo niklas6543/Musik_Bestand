@@ -15,12 +15,12 @@
 
 		if ($mode == 'title')
 		{
-			$sql = 'SELECT name AS \'title\' FROM title	WHERE name LIKE ?;';
+			$sql = 'SELECT name AS \'title\' FROM title WHERE name LIKE ?;';
 		}
 
 		if ($mode == 'interpret')
 		{
-			$sql = 'SELECT name AS \'interpret\' FROM interpret	WHERE name LIKE ?;';
+			$sql = 'SELECT name AS \'interpret\' FROM interpret WHERE name LIKE ?;';
 		}
 
 		if ($mode == 'genre')
@@ -43,7 +43,6 @@
 
             $stmt->close();
         }
-
         echo json_encode($result);
 		
 		

@@ -38,7 +38,7 @@
         $albumId = $_GET['albumId'];
 
         $sql = 'SELECT
-                    alben.id AS \'id\',   
+                    alben.id AS \'albumId\',   
                     alben.cover AS \'cover\', alben.name AS \'album\', 
                     interpret.name AS \'interpret\', alben.genre AS \'genre\',
                     alben.rating AS \'rating\', medium.name AS \'medium\',

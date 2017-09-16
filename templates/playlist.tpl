@@ -24,26 +24,12 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     {$album['interpret']}<br/>
                     {$album['genre']}<br/>
                     {$album['year']}<br/>
-                    {for $i=1 to 5}
-                        {if $i lte $album['rating']}
-                          	<span style="font-size: 30px">★</span>
-                        {else}
-                          	<span style="font-size: 30px">☆</span>
-                        {/if}
-                    {/for}
-                    <br/>
+                    {include file="templates/star-rating.tpl"}<br/>
                     {$album['medium']}<br/>
                 </div>
                 <div class"col-lg-1">
-                    {if $album['lent'] eq '0'}
-                        <a href="index.php?session=playlist&albumId={$album['id']}&lentit" data-toggle="tooltip" data-placement="bottom" title="available">
-                            <img src="img/greenbtn.png" width="50" height="50" />
-                        </a>
-                    {else}
-                        <a href="index.php?session=playlist&albumId={$album['id']}&backit" data-toggle="tooltip" data-placement="bottom" title="lent by {$album['lent']}">
-                            <img src="img/redbtn.png" width="50" height="50" />
-                        </a>
-                    {/if}                                
+                    {assign var="status" value=$album}
+                    {include file="templates/status.tpl"}
                 </div>
             </div>
             {if $mode eq 'playlist'}
@@ -78,7 +64,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <div class="row top-buffer">
                     <h1>Renting</h1>
                     <p>Would you like to rent this album?</p>
-                    <form action="index.php?session=playlist&albumId={$album['id']}&lentit" method="post">
+                    <form action="index.php?session=playlist&albumId={$album['albumId']}&lentit" method="post">
                         <input type="submit" name="answerLent" class="btn" value="no" />
                         <input type="submit" name="answerLent" class="btn" value="yes" />
                     </form>
@@ -87,7 +73,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                 <div class="row top-buffer">
                     <h1>Give Back</h1>
                     <p>Would you like to give this album back?</p>
-                    <form action="index.php?session=playlist&albumId={$album['id']}&backit" method="post">
+                    <form action="index.php?session=playlist&albumId={$album['albumId']}&backit" method="post">
                         <input type="submit" name="answerBack" class="btn" value="no" />
                         <input type="submit" name="answerBack" class="btn" value="yes" />
                     </form>

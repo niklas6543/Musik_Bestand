@@ -17,14 +17,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                     $('#'+fields[i]).autocomplete({
                         source: function(request, response) {
                             $.ajax({
-                                url: 'functions/autocompletesearch.php',
+                                url: 'functions/autocompleteSearch.php',
                                 datatype: 'json',
                                 data: {
                                     mode: this.element.attr('name'),
                                     term: this.element.val()
                                 },
                                 success: function(data) {
-                                    response(data);
+                                    response(JSON.parse(data));
                                     console.log(data);
                                 }
                             });

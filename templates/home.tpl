@@ -27,19 +27,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <td>{$available['album']}</td>
                             <td>{$available['interpret']}</td>
                             <td>
-                                {for $i=1 to 5}
-                                    {if $i lte $available['rating']}
-                                    	<span style="font-size: 30px">★</span>
-                                    {else}
-                                    	<span style="font-size: 30px">☆</span>
-                                    {/if}
-                                {/for}
+                                {assign var="rating" value=$available}
+                            	{include file="templates/stars.tpl"}
                             </td>
                             <td>{$available['owner']}</td>
                             <td>
-                                <a href="index.php?session=playlist&albumId={$available['albumId']}&lentit" data-toggle="tooltip" data-placement="bottom" title="available">
-                                    <img src="img/greenbtn.png" width="50" height="50" />
-                                </a>
+                                {assign var="status" value=$available}
+                            	{include file="templates/status.tpl"}
                             </td>
                         </tr>
                 {/foreach}
@@ -64,13 +58,8 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <td>{$lent['album']}</td>
                             <td>{$lent['interpret']}</td>
                             <td>
-                                {for $i=1 to 5}
-                                    {if $i lte $lent['rating']}
-                                    	<span style="font-size: 30px">★</span>
-                                    {else}
-                                    	<span style="font-size: 30px">☆</span>
-                                    {/if}
-                                {/for}
+                                {assign var="rating" value=$lent}
+                            	{include file="templates/stars.tpl"}
                             </td>
 			    <td>
 		                <a href="index.php?session=playlist&albumId={$lent['albumId']}&backit"><span class="glyphicon glyphicon-hand-right"> Give Back</span></a>
@@ -97,13 +86,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <td>{$rating['album']}</td>
                             <td>{$rating['interpret']}</td>
                             <td>
-                                {for $i=1 to 5}
-                                    {if $i lte $rating['rating']}
-                                    	<span style="font-size: 30px">★</span>
-                                    {else}
-                                    	<span style="font-size: 30px">☆</span>
-                                    {/if}
-                                {/for}
+                            	{include file="templates/stars.tpl"}
                             </td>
                         </tr>
                 {/foreach}

@@ -29,19 +29,15 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                             <td>{$row['genre']}</td>
                             <td>{$row['year']}</td>
                             <td>
-                                {for $i=1 to 5}
-                                    {if $i lte $row['rating']}
-                                    	<span style="font-size: 30px">★</span>
-                                    {else}
-                                    	<span style="font-size: 30px">☆</span>
-                                    {/if}
-                                {/for}
+                                {assign var="rating" value=$row}
+                            	{include file="templates/stars.tpl"}
                             </td>
                             <td>{$row['medium']}</td>
                             <td>{$row['owner']}</td>
                             <td>
+                                {assign var="status" value=$row}
                             	{include file="templates/status.tpl"}
-							</td>
+                            </td>
                             <td>{$row['notice']}</td>
                         </tr>
                 {/foreach}
