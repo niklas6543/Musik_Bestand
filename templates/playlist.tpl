@@ -48,7 +48,7 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                                  <td>{$row['name']}</td>
                                  <td>{$row['length']}</td>
                                  <td>
-	        	             <a href="index.php?session=playlist&albumId={$album['id']}&titleId={$row['id']}">
+	        	             <a href="index.php?session=playlist&albumId={$album['albumId']}&titleId={$row['id']}">
 		        	         <img src="img/play.png" width="50" height="50" />
 			            </a>
 			        </td>
