@@ -7,17 +7,21 @@
     <body>
         <script type="text/javascript">
             $(function(){
+                var GET = new URLSearchParams(window.location.search);
+
                 $("#{$album['rating']}").attr('checked',true)
                 $('#star-rating').rating(function(vote, event){
                     $.ajax({
-                        url: "test.php",
+                        url: "functions/rating.php",
                         type: "GET",
                         data: {
-                            rate: vote
+                            rate: vote,
+                            albumId: GET.get('albumId')
                         },
-                    }).done(function(data){
+                    })
+                    /*.done(function(data){
                         alert(data);
-                    });
+                    });*/
                 });
             });
         </script>
