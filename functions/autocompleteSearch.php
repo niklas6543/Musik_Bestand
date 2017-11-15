@@ -18,21 +18,25 @@
         
         $sql = '';
 
+        //search for title?
         if ($mode == 'title')
         {
                 $sql = 'SELECT name AS \'title\' FROM title WHERE name LIKE ?;';
         }
 
+        //search for interpret?
         if ($mode == 'interpret')
         {
                 $sql = 'SELECT name AS \'interpret\' FROM interpret WHERE name LIKE ?;';
         }
 
+        //search for genre?
         if ($mode == 'genre')
         {
                 $sql = 'SELECT genre FROM alben	WHERE genre LIKE ?;';
         }
 
+        //create prepare sql statement
         if ($stmt = $con->prepare($sql))
         {
             $term = '%'.$_GET['term'].'%';
@@ -40,14 +44,18 @@
             $stmt->execute();
             
 	    $rows = $stmt->get_result()->fetch_all();
-	    
-        foreach ($rows as $row)
-        {
-	        $result[] = $row[0];
-	    }
+	
+        
+            //get all results    
+            foreach ($rows as $row)
+            {
+                    $result[] = $row[0];
+            }
 
             $stmt->close();
         }
+
+        //create json of result
         echo json_encode($result);
 		
 		

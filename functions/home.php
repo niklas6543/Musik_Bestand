@@ -21,13 +21,15 @@
                 INNER JOIN medium ON alben.mediumId = medium.id
             )
             ORDER BY alben.rating DESC;';
-    
+
+    //execute query    
     $result = mysqli_query($con, $sql);
     
     $ratings = [];
     $availables = [];
     $lents = [];
     
+    //catch all results
     while ($row = mysqli_fetch_assoc($result))
     {
         $owner = mysqli_fetch_assoc(mysqli_query($con, 'SELECT name FROM user WHERE id = '.$row['owner']));
@@ -37,11 +39,11 @@
             $row['owner'] = $owner['name'];            
         }
 
-		if ($_SESSION['id'] == $row['lent'])
-		{
-			array_push($lents, $row);
-		}
-        
+        if ($_SESSION['id'] == $row['lent'])
+        {
+	    array_push($lents, $row);
+	}
+        //have everyone lent the album? 
         if ($row['lent'] != 0)
         {
             $lent = mysqli_fetch_assoc(mysqli_query($con, 'SELECT name FROM user WHERE id = '.$row['lent']));
