@@ -10,13 +10,14 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     <body>
     <style>
         .center {
-            margin: 0;
+            margin: auto;
+            padding: 20px 10px;    
             position: absolute;
             top: 20%;
             left: 20%;
             border-width: auto;
-            .background: lightgrey; 
         }
+
     </style>
     <div class="container center jumbotron">
         <h1>Login-Site</h1>

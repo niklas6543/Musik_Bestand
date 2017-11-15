@@ -13,7 +13,6 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         <a href="index.php?session=library">
            <span style="font-size:30px; position:fixed; top:10%; " class="glyphicon glyphicon-menu-left"></span>
         </a>
-
         <div class="container">
             <div class="row">
                 <div  class="col-lg-3">

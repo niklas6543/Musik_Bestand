@@ -6,27 +6,32 @@
  * User     : Niklas
  */
     require_once('../lib/config.inc.php');
-		
+    
+    // term includes user entry		
     if (isset($_GET['term']))
     {
+        
        	$result = array();
-		$mode = $_GET['mode'];
-		$sql = '';
+        
+        // which field is selected
+        $mode = $_GET['mode'];
+        
+        $sql = '';
 
-		if ($mode == 'title')
-		{
-			$sql = 'SELECT name AS \'title\' FROM title WHERE name LIKE ?;';
-		}
+        if ($mode == 'title')
+        {
+                $sql = 'SELECT name AS \'title\' FROM title WHERE name LIKE ?;';
+        }
 
-		if ($mode == 'interpret')
-		{
-			$sql = 'SELECT name AS \'interpret\' FROM interpret WHERE name LIKE ?;';
-		}
+        if ($mode == 'interpret')
+        {
+                $sql = 'SELECT name AS \'interpret\' FROM interpret WHERE name LIKE ?;';
+        }
 
-		if ($mode == 'genre')
-		{
-			$sql = 'SELECT genre FROM alben	WHERE genre LIKE ?;';
-		}
+        if ($mode == 'genre')
+        {
+                $sql = 'SELECT genre FROM alben	WHERE genre LIKE ?;';
+        }
 
         if ($stmt = $con->prepare($sql))
         {
